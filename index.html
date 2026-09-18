@@ -1,161 +1,97 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Foodie</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodie &mdash; order food you'll actually crave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-    <!-- Navbar -->
+  <header class="site-header">
+    <div class="brand">food<span>ie</span></div>
+    <div class="header-right">
+      <span class="locality">Delivering to Bengaluru</span>
+      <a href="#" class="cart-link" onclick="alert('Add items from a restaurant first!'); return false;">
+        Cart <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
 
-    <nav>
-        <h2>🍴 Foodie</h2>
+  <section class="hero">
+    <h1>Good food, ordered your way.</h1>
+    <p class="lede">Browse restaurants near you, build your plate, and check out in a few taps.</p>
+    <form class="search-row" onsubmit="return false;">
+      <input type="text" id="searchInput" placeholder="Search restaurants or cuisines&hellip;" />
+      <button type="submit">Search</button>
+    </form>
+  </section>
 
-        <div>
-            <a href="index.html">Home</a>
-            <a href="#restaurants">Restaurants</a>
-            <a href="cart.html">🛒 Cart</a>
-        </div>
-    </nav>
+  <div class="chip-row" id="chipRow">
+    <button class="chip active" data-cuisine="all">All</button>
+  </div>
 
+  <p class="section-label" id="resultCount"></p>
+  <div class="restaurant-grid" id="restaurantGrid"></div>
+  <p class="no-results" id="noResults" style="display:none;">No restaurants match your search. Try a different name or cuisine.</p>
 
-    <!-- Hero -->
-
-    <section class="hero">
-
-        <div>
-            <h1>Delicious food,<br>
-                <span>delivered fast!</span>
-            </h1>
-
-            <p>
-                Order your favourite food from your favourite restaurants.
-            </p>
-
-            <div class="search">
-                <input
-                    type="text"
-                    placeholder="Search for food or restaurants...">
-
-                <button>🔍 Search</button>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- Restaurants -->
-
-    <section id="restaurants">
-
-        <h2>Popular Restaurants 🍽️</h2>
-
-        <p class="subtitle">
-            Explore restaurants near you
-        </p>
-
-
-        <div class="restaurant-container">
-
-
-            <!-- Restaurant 1 -->
-
-            <div class="restaurant-card">
-
-                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=600&q=80">
-
-                <div class="restaurant-info">
-
-                    <h3>🍕 Pizza House</h3>
-
-                    <p class="rating">⭐ 4.5</p>
-
-                    <p>Pizza • Italian</p>
-
-                    <p>🕐 25–30 min</p>
-
-                    <a href="restaurant.html">
-                        <button>View Menu →</button>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Restaurant 2 -->
-
-            <div class="restaurant-card">
-
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80">
-
-                <div class="restaurant-info">
-
-                    <h3>🍔 Burger Point</h3>
-
-                    <p class="rating">⭐ 4.3</p>
-
-                    <p>Burgers • Fast Food</p>
-
-                    <p>🕐 20–25 min</p>
-
-                    <a href="restaurant.html">
-                        <button>View Menu →</button>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Restaurant 3 -->
-
-            <div class="restaurant-card">
-
-                <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80">
-
-                <div class="restaurant-info">
-
-                    <h3>🍜 Chinese Corner</h3>
-
-                    <p class="rating">⭐ 4.4</p>
-
-                    <p>Chinese • Noodles</p>
-
-                    <p>🕐 30–35 min</p>
-
-                    <a href="restaurant.html">
-                        <button>View Menu →</button>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-
-    <footer>
-
-        <h2>🍴 Foodie</h2>
-
-        <p>Good Food. Good Mood. ❤️</p>
-
-    </footer>
-
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/home.js"></script>
 </body>
-
 </html>
-```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu &mdash; Foodie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="brand">food<span>ie</span></a>
+    <div class="header-right">
+      <span class="locality">Delivering to Bengaluru</span>
+      <a href="#cartPanel" class="cart-link">
+        Cart <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="menu-hero">
+    <a href="index.html" class="back-link">&larr; Back to restaurants</a>
+    <h1 id="restaurantName">Loading&hellip;</h1>
+    <div class="meta-row" id="restaurantMeta"></div>
+  </section>
+
+  <div class="menu-layout">
+    <div id="menuList"></div>
+
+    <aside class="cart-panel" id="cartPanel">
+      <h2>Your order</h2>
+      <div id="cartLines"><p class="cart-empty">Your cart is empty. Add a dish to get started.</p></div>
+      <div id="billSummary"></div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Place order</button>
+    </aside>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-card">
+      <div class="icon">&#10003;</div>
+      <h2>Order placed!</h2>
+      <p id="modalText">Your food is being prepared and will arrive soon.</p>
+      <button id="modalCloseBtn">Back to restaurants</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
