@@ -1,193 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu &mdash; Foodie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
 
-body {
-    font-family: Arial, sans-serif;
-    background: #fffaf5;
-    color: #222;
-}
+  <header class="site-header">
+    <a href="index.html" class="brand">food<span>ie</span></a>
+    <div class="header-right">
+      <span class="locality">Delivering to Bengaluru</span>
+      <a href="#cartPanel" class="cart-link">
+        Cart <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
 
-/* Navbar */
+  <section class="menu-hero">
+    <a href="index.html" class="back-link">&larr; Back to restaurants</a>
+    <h1 id="restaurantName">Loading&hellip;</h1>
+    <div class="meta-row" id="restaurantMeta"></div>
+  </section>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background: white;
-    box-shadow: 0 2px 10px #ddd;
-}
+  <div class="menu-layout">
+    <div id="menuList"></div>
 
-nav h2 {
-    color: #ff5a1f;
-}
+    <aside class="cart-panel" id="cartPanel">
+      <h2>Your order</h2>
+      <div id="cartLines"><p class="cart-empty">Your cart is empty. Add a dish to get started.</p></div>
+      <div id="billSummary"></div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Place order</button>
+    </aside>
+  </div>
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 25px;
-    font-weight: bold;
-}
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-card">
+      <div class="icon">&#10003;</div>
+      <h2>Order placed!</h2>
+      <p id="modalText">Your food is being prepared and will arrive soon.</p>
+      <button id="modalCloseBtn">Back to restaurants</button>
+    </div>
+  </div>
 
-nav a:hover {
-    color: #ff5a1f;
-}
-
-/* Hero */
-
-.hero {
-    min-height: 420px;
-    display: flex;
-    align-items: center;
-    padding: 60px 8%;
-    background: linear-gradient(90deg, #fff1e8, #ffffff);
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.hero h1 span {
-    color: #ff5a1f;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
-
-/* Search */
-
-.search {
-    display: flex;
-    max-width: 550px;
-}
-
-.search input {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px 0 0 10px;
-    font-size: 15px;
-}
-
-.search button {
-    padding: 15px 22px;
-    border: none;
-    background: #ff5a1f;
-    color: white;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-}
-
-/* Restaurants */
-
-#restaurants {
-    padding: 60px 8%;
-}
-
-#restaurants h2 {
-    font-size: 30px;
-}
-
-.subtitle {
-    color: #777;
-    margin: 8px 0 30px;
-}
-
-.restaurant-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.restaurant-card {
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px #ddd;
-    transition: 0.3s;
-}
-
-.restaurant-card:hover {
-    transform: translateY(-5px);
-}
-
-.restaurant-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-}
-
-.restaurant-info {
-    padding: 20px;
-}
-
-.restaurant-info h3 {
-    margin-bottom: 10px;
-}
-
-.restaurant-info p {
-    margin: 7px 0;
-    color: #666;
-}
-
-.rating {
-    color: #ff8a00 !important;
-    font-weight: bold;
-}
-
-.restaurant-info button {
-    margin-top: 12px;
-    padding: 11px 18px;
-    border: none;
-    background: #ff5a1f;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Footer */
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #222;
-    color: white;
-}
-
-footer h2 {
-    color: #ff5a1f;
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav a {
-        margin-left: 10px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .search {
-        flex-direction: column;
-    }
-
-    .search input,
-    .search button {
-        border-radius: 8px;
-        margin-bottom: 8px;
-    }
-}
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
